@@ -3,7 +3,7 @@ import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const { signInUser, setUser } = useAuth();
@@ -95,6 +95,12 @@ const SignIn = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <p className='text-center font-semibold'>
+                        Don’t Have An Account?{' '}
+                        <Link className='text-red-500' to='/register'>
+                            Register
+                        </Link>
+                    </p>
                     <SocialLogin></SocialLogin>
                 </div>
             </div>

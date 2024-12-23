@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 
@@ -109,6 +109,9 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <p className='text-center font-semibold'>
+                        Already Have An Account ? <Link className='text-red-500' to='/signin'>Login</Link>
+                    </p>
                     <SocialLogin></SocialLogin>
                 </div>
             </div>
