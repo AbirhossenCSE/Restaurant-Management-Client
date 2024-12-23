@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
-    const { signInUser } = useAuth();
+    const { signInUser, setUser } = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     // const location = useLocation();
     // const navigate = useNavigate();
@@ -19,7 +25,20 @@ const SignIn = () => {
         // signin user
         signInUser(email, password)
             .then(result => {
-                console.log("signin", result.user.email);
+                const user = result.user;
+                setUser(user);
+
+                Swal.fire({
+                    title: 'Login Successful!',
+                    text: 'You have successfully logged into your account.',
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 2000);
                 // const user = { email: email }
                 // axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                 //     .then(res => {
@@ -52,7 +71,22 @@ const SignIn = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    name='password'
+                                    placeholder="password"
+                                    className="input input-bordered w-full"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    className="absolute inset-y-0 right-2 flex items-center text-gray-600"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                                </button>
+                            </div>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

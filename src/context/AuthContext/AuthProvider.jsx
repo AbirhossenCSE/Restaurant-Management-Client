@@ -29,24 +29,44 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            console.log('state captured', currentUser)
-            setLoading(false);
-        })
-        return () => {
-            unsubscribe();
-        }
-    },[])
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    //         setUser(currentUser);
+    //         setLoading(false);
+    //     })
+    //     return () => {
+    //         unsubscribe();
+    //     }
+    // },[])
+
     const authInfo = {
         user,
+        setUser,
         loading,
+        auth,
         createUser,
         signInUser,
         signOutUser,
         signInWithGoogle,
     }
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false)
+            if (currentUser) {
+                setUser({
+                    email: currentUser.email,
+                    displayName: currentUser.displayName,
+                    photoURL: currentUser.photoURL,
+                });
+            } else {
+                setUser(null);
+            }
+        });
+    
+        return () => unsubscribe();
+    }, []);
 
     return (
         <AuthContext.Provider value={authInfo}>
