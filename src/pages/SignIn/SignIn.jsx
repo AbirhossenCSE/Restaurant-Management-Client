@@ -1,5 +1,6 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
+import SocialLogin from '../shared/SocialLogin';
 
 const SignIn = () => {
     const { signInUser } = useAuth();
@@ -60,7 +61,7 @@ const SignIn = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    {/* <SocialLogin></SocialLogin> */}
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
