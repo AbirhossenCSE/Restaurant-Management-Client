@@ -1,9 +1,7 @@
 import React from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const BestFoodCard = ({ food }) => {
-
+const AllFoodCard = ({ food }) => {
     const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description } = food;
 
     return (
@@ -15,12 +13,12 @@ const BestFoodCard = ({ food }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{foodName}</h2>
-                <p>Price: {price} </p>
-                <p>Category: {foodCategory} </p>
-                <p>Food Origin: {foodOrigin} </p>
+                <p><strong>Price:</strong> {price} </p>
+                <p><strong>Category:</strong> {foodCategory} </p>
+                <p><strong>Food Origin:</strong> {foodOrigin} </p>
                 <div className="">
                     <Link to={`/foods/${_id}`}>
-                        <button className="btn bg-[#cacfd2] w-full">View Details</button>
+                        <button className="btn bg-[#cacfd2] w-full ">View Details</button>
                     </Link>
                 </div>
             </div>
@@ -28,4 +26,4 @@ const BestFoodCard = ({ food }) => {
     );
 };
 
-export default BestFoodCard;
+export default AllFoodCard;
