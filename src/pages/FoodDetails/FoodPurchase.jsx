@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 const FoodPurchase = () => {
     const { _id, foodName, price, quantity } = useLoaderData();
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     const handlePurchase = (e) => {
         e.preventDefault();
@@ -31,7 +32,7 @@ const FoodPurchase = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // navigate('/')
+                    navigate('/my-order')
                 }
             })
     };
