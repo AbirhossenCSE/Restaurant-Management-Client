@@ -6,31 +6,15 @@ import moment from 'moment';
 const MyOrder = () => {
     const { user } = useAuth();
     const [foods, setFoods] = useState([]);
-    const [loading, setLoading] = useState(true); // Add a loading state
+
 
     useEffect(() => {
-        // Fetch orders only when user is available
-        if (user?.email) {
-            axios
-                .get(`http://localhost:5000/food-purchase?email=${user.email}`)
-                .then(res => {
-                    setFoods(res.data);
-                    setLoading(false); // Stop loading after fetching data
-                })
-                .catch(err => {
-                    console.error("Error fetching orders:", err);
-                    setLoading(false); // Stop loading even if there's an error
-                });
-        } else {
-            setLoading(false); // Stop loading if user is not defined
-        }
-    }, [user?.email]);
+        axios
+            .get(`http://localhost:5000/food-purchase?email=${user?.email}`)
+            .then(res => setFoods(res.data))
+            .catch(err => console.error("Error fetching orders:", err));
+    }, [user.email]);
 
-    if (loading) {
-        return (
-            <span className="loading loading-spinner loading-lg"></span>
-        );
-    }
 
     return (
         <div className="max-w-6xl mx-auto mt-10">
