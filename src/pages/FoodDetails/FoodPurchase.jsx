@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const FoodPurchase = () => {
     const { _id, foodName, price, quantity } = useLoaderData();
@@ -13,12 +15,25 @@ const FoodPurchase = () => {
             foodName,
             price,
             quantity: e.target.quantity.value,
-            buyerName: user.name,
+            buyerName: user.displayName,
             buyerEmail: user.email,
             buyingDate: Date.now()
         };
         console.log("Purchase Data:", purchaseData);
-        // Add your logic to send `purchaseData` to the server
+
+        axios.post('http://localhost:5000/food-purchase', purchaseData )
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Order Conformed",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // navigate('/')
+                }
+            })
     };
 
     return (
