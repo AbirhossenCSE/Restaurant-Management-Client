@@ -15,7 +15,8 @@ const BestFoods = () => {
 
     return (
         <div className='w-11/12 mx-auto'>
-            <div className='bg-base-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-12'>
+            <h2 className='text-center text-3xl font-bold text-gray-500 m-4'>Best Food Items</h2>
+            <div className='bg-base-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-12'>
                 {
                     foods.map(food => <BestFoodCard key={food._id} food={food}></BestFoodCard>)
                 }

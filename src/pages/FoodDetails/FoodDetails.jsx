@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaDollarSign } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const FoodDetails = () => {
     const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description } = useLoaderData();
@@ -26,8 +26,9 @@ const FoodDetails = () => {
                         <p><strong>Description:</strong> {description}</p>
                     </div>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Purchase</div>
+                        <Link to={`/foodPurchase/${_id}`}>
+                            <button className="btn btn-primary">Purchase Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>

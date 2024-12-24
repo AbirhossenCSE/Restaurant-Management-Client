@@ -18,7 +18,7 @@ const AllFoodCard = ({ food }) => {
                 <p><strong>Food Origin:</strong> {foodOrigin} </p>
                 <div className="">
                     <Link to={`/foods/${_id}`}>
-                        <button className="btn bg-[#cacfd2] w-full ">View Details</button>
+                        <button className="btn bg-[#cacfd2] w-full text-green-700 ">View Details</button>
                     </Link>
                 </div>
             </div>
