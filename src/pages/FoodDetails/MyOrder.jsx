@@ -48,7 +48,7 @@ const MyOrder = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td className="border border-gray-300 px-4 py-2 text-center">${food.price.toFixed(2)}</td>
+                                <td className="border border-gray-300 px-4 py-2 text-center">${food.price}</td>
                                 <td className="border border-gray-300 px-4 py-2 text-center">
                                     {food.buyerName}
                                     <br />
