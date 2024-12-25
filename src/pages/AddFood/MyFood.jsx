@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
+import { MdDelete } from 'react-icons/md';
 
 const MyFood = () => {
     const { user } = useAuth();
@@ -26,19 +28,40 @@ const MyFood = () => {
     };
 
     const handleDelete = (foodId) => {
-        if (window.confirm('Are you sure you want to delete this food item?')) {
-            axios
-                .delete(`http://localhost:5000/foods/${foodId}`)
-                .then(() => {
-                    setFoods(foods.filter((food) => food._id !== foodId));
-                    alert('Food item deleted successfully.');
-                })
-                .catch((error) => {
-                    console.error('Error deleting food:', error);
-                    alert('Failed to delete food item.');
-                });
-        }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios
+                    .delete(`http://localhost:5000/foods/${foodId}`)
+                    .then(() => {
+                        setFoods(foods.filter((food) => food._id !== foodId));
+                        Swal.fire(
+                            'Deleted!',
+                            'Your food item has been deleted.',
+                            'success'
+                        );
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting food:', error);
+                        Swal.fire(
+                            'Error!',
+                            'Failed to delete the food item.',
+                            'error'
+                        );
+                    });
+            }
+        });
     };
+
+
+
 
     return (
         <div className="max-w-6xl mx-auto m-10">
@@ -71,19 +94,21 @@ const MyFood = () => {
                                     </div>
                                 </td>
                                 <td className="border border-gray-300 px-4 py-2 text-center">${food.price}</td>
-                                <td className="border border-gray-300 px-4 py-2 text-center">
-                                    <button
-                                        onClick={() => handleUpdate(food._id)}
-                                        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mr-2"
-                                    >
-                                        Update
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(food._id)}
-                                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                                    >
-                                        Delete
-                                    </button>
+                                <td className="flex border border-gray-300 px-2 py-2 text-center">
+
+                                    <div className='w-1/2'>
+                                        <Link to={`/update-food/${food._id}`}>
+                                            <button className="btn join-item w-full bg-gray-600 text-white">Update</button>
+                                        </Link>
+                                    </div>
+                                    <div className='w-1/2'>
+                                        <button
+                                            onClick={() => handleDelete(food._id)}
+                                            className="btn join-item w-full bg-gray-600 text-white"
+                                        >
+                                            <MdDelete />
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
