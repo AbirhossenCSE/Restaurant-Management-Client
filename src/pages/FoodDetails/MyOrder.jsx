@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import moment from 'moment';
+import Swal from 'sweetalert2';
+import { AiFillDelete } from 'react-icons/ai';
 
 const MyOrder = () => {
     const { user } = useAuth();
     const [foods, setFoods] = useState([]);
-
 
     useEffect(() => {
         axios
@@ -15,9 +16,36 @@ const MyOrder = () => {
             .catch(err => console.error("Error fetching orders:", err));
     }, [user.email]);
 
+    const handleDelete = (orderId) => {
+        Swal.fire({
+            position: "top-end",
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios
+                    .delete(`http://localhost:5000/food-purchase/${orderId}`)
+                    .then(() => {
+                        setFoods(foods.filter((food) => food._id !== orderId));
+                        Swal.fire({
+                            position: "top-end",
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success",
+                            timer: 1500
+                        });
+                    })
+            }
+        });
+    };
 
     return (
-        <div className="max-w-6xl mx-auto mt-10">
+        <div className="max-w-6xl mx-auto m-10">
             <h2 className="text-2xl font-bold mb-6">My Orders: {foods.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-300">
@@ -38,7 +66,7 @@ const MyOrder = () => {
                                 <td className="border border-gray-300 px-4 py-2">
                                     <div className="flex items-center">
                                         <img
-                                            src={food.foodImage || "https://via.placeholder.com/50"}
+                                            src={food?.foodImage}
                                             alt={food.foodName}
                                             className="w-12 h-12 rounded mr-4"
                                         />
@@ -55,13 +83,14 @@ const MyOrder = () => {
                                     <span className="text-sm text-gray-500">{food.buyerEmail}</span>
                                 </td>
                                 <td className="border border-gray-300 px-4 py-2 text-center">
-                                    {moment(food.buyingDate).format("MMMM Do YYYY, h:mm:ss a")}
+                                    {moment(food.buyingDate).format("MMMM Do YYYY, h:mm a")}
                                 </td>
                                 <td className="border border-gray-300 px-4 py-2 text-center">
                                     <button
+                                        onClick={() => handleDelete(food._id)}
                                         className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                                     >
-                                        Delete
+                                        <AiFillDelete />
                                     </button>
                                 </td>
                             </tr>

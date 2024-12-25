@@ -3,7 +3,7 @@ import { FaDollarSign } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const FoodDetails = () => {
-    const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description } = useLoaderData();
+    const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description, purchaseCount } = useLoaderData();
     return (
         <div>
             <div className="card bg-base-200 w-4/6 mx-auto my-16 shadow-xl">
@@ -21,6 +21,7 @@ const FoodDetails = () => {
                         <p><strong>Food Category:</strong> {foodCategory}</p>
                         <p className='flex items-center'>
                             <strong>Food Price:</strong> <FaDollarSign />{price}</p>
+                        <p><strong>Total Sold:</strong> {purchaseCount || 0}</p>
                         <p><strong>Available:</strong> {quantity}</p>
                         <p><strong>Food Origin:</strong> {foodOrigin}</p>
                         <p><strong>Description:</strong> {description}</p>

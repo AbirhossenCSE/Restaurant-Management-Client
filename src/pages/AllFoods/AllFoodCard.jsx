@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllFoodCard = ({ food }) => {
-    const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description } = food;
+    const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description, purchaseCount } = food;
 
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
@@ -16,6 +16,7 @@ const AllFoodCard = ({ food }) => {
                 <p><strong>Price:</strong> {price} </p>
                 <p><strong>Category:</strong> {foodCategory} </p>
                 <p><strong>Food Origin:</strong> {foodOrigin} </p>
+                <p><strong>Total Order:</strong> {purchaseCount || 0} </p>
                 <div className="">
                     <Link to={`/foods/${_id}`}>
                         <button className="btn bg-[#cacfd2] w-full text-green-700 ">View Details</button>
