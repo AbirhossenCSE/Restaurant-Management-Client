@@ -64,8 +64,8 @@ const AddFood = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded shadow">
-            <h2 className="text-2xl font-bold mb-6">Add Food</h2>
+        <div className="max-w-4xl mx-auto mt-5 mb-10 p-6 bg-gray-100 rounded shadow">
+            <h2 className="text-3xl text-center text-gray-600 font-bold mb-6">Add New Food Item</h2>
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-4">
                     <div>
@@ -74,6 +74,7 @@ const AddFood = () => {
                             type="text"
                             name="foodName"
                             value={formData.foodName}
+                            placeholder='Food Name'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -85,6 +86,7 @@ const AddFood = () => {
                             type="text"
                             name="foodImage"
                             value={formData.foodImage}
+                            placeholder='Image URL'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -96,6 +98,7 @@ const AddFood = () => {
                             type="text"
                             name="foodCategory"
                             value={formData.foodCategory}
+                            placeholder='Food Category'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -107,6 +110,7 @@ const AddFood = () => {
                             type="number"
                             name="quantity"
                             value={formData.quantity}
+                            placeholder='Quantity of food'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -119,6 +123,7 @@ const AddFood = () => {
                             step="0.01"
                             name="price"
                             value={formData.price}
+                            placeholder='Price'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -130,6 +135,7 @@ const AddFood = () => {
                             type="text"
                             name="foodOrigin"
                             value={formData.foodOrigin}
+                            placeholder='Food Origin'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             required
@@ -140,6 +146,7 @@ const AddFood = () => {
                         <textarea
                             name="description"
                             value={formData.description}
+                            placeholder='Write Description'
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded"
                             rows="4"
@@ -149,9 +156,9 @@ const AddFood = () => {
                 </div>
                 <button
                     type="submit"
-                    className="mt-6 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+                    className="w-full mt-6 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
                 >
-                    Add Item
+                    Add Food Item
                 </button>
             </form>
         </div>

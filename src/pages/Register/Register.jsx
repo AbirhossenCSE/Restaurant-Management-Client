@@ -14,10 +14,6 @@ const Register = () => {
 
     const handleRegister = e => {
         e.preventDefault();
-        // const form = e.target;
-        // const email = form.email.value;
-        // const password = form.password.value;
-        // console.log(email, password);
 
         const form = new FormData(e.target);
         const name = form.get('name');
@@ -25,7 +21,23 @@ const Register = () => {
         const photo = form.get('photo');
         const password = form.get('password');
 
-        // password validation
+        // Validate password
+        const passwordValidation = validatePassword(password);
+
+        if (!passwordValidation.isValid) {
+            Swal.fire({
+                title: 'Validation Error',
+                text: passwordValidation.message,
+                icon: 'error',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+            return;
+        }
+
         // Create user
         createUser(email, password)
             .then(result => {
@@ -35,47 +47,71 @@ const Register = () => {
                     title: 'Registration Successful!',
                     text: 'You have successfully created an account.',
                     icon: 'success',
-                    timer: 2000,
+                    toast: true,
+                    position: 'top-end',
                     showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
                 });
                 setTimeout(() => {
-                    navigate(location?.state ? location.state : '/');
-                    setUser(user)
-                }, 2000);
+                    navigate('/');
+                }, 3000);
             })
             .catch(error => {
-                console.log(error.message)
-            })
+                Swal.fire({
+                    title: 'Registration Failed',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                console.log(error.message);
+            });
+    };
 
-    }
+    // Function to validate password
+    const validatePassword = (password) => {
+        if (password.length < 6) {
+            return { isValid: false, message: "Password must be at least 6 characters long." };
+        }
+        if (!/[A-Z]/.test(password)) {
+            return { isValid: false, message: "Password must contain at least one uppercase letter." };
+        }
+        if (!/[a-z]/.test(password)) {
+            return { isValid: false, message: "Password must contain at least one lowercase letter." };
+        }
+        return { isValid: true };
+    };
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    {/* animation */}
+                    {/* Animation or text can go here */}
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-5/12 shadow-2xl">
                     <h1 className="mx-auto mt-5 text-5xl font-bold">Register now!</h1>
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="name" name='name' placeholder="name" className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                         </div>
-
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -85,7 +121,7 @@ const Register = () => {
                                 <input
                                     type={showPassword ? 'text' : 'password'}
                                     name='password'
-                                    placeholder="password"
+                                    placeholder="Password"
                                     className="input input-bordered w-full"
                                     required
                                 />
@@ -94,11 +130,7 @@ const Register = () => {
                                     className="absolute inset-y-0 right-2 flex items-center"
                                     onClick={() => setShowPassword(!showPassword)}
                                 >
-                                    {showPassword ? (
-                                        <FaRegEye />
-                                    ) : (
-                                        <FaEyeSlash />
-                                    )}
+                                    {showPassword ? <FaRegEye /> : <FaEyeSlash />}
                                 </button>
                             </div>
                             <label className="label">
@@ -110,7 +142,7 @@ const Register = () => {
                         </div>
                     </form>
                     <p className='text-center font-semibold'>
-                        Already Have An Account ? <Link className='text-red-500' to='/signin'>Login</Link>
+                        Already Have An Account? <Link className='text-red-500' to='/signin'>Login</Link>
                     </p>
                     <SocialLogin></SocialLogin>
                 </div>

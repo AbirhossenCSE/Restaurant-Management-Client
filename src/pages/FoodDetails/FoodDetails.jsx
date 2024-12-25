@@ -13,9 +13,8 @@ const FoodDetails = () => {
                         alt={foodName} />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title mx-auto">
+                    <h2 className="text-4xl font-bold text-gray-500 mx-auto">
                         {foodName}
-                        <div className="badge badge-secondary">NEW</div>
                     </h2>
                     <div className='p-4 '>
                         <p><strong>Food Category:</strong> {foodCategory}</p>
@@ -26,9 +25,12 @@ const FoodDetails = () => {
                         <p><strong>Food Origin:</strong> {foodOrigin}</p>
                         <p><strong>Description:</strong> {description}</p>
                     </div>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions mx-4">
+                        <Link to={'/'}>
+                            <button className="btn btn-neutral w-full mr-6">Go Home</button>
+                        </Link>
                         <Link to={`/foodPurchase/${_id}`}>
-                            <button className="btn btn-primary">Purchase Now</button>
+                            <button className="btn btn-neutral">Purchase Now</button>
                         </Link>
                     </div>
                 </div>

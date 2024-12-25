@@ -81,7 +81,7 @@ const Navbar = () => {
                             alt={user?.displayName || 'User Profile'}
                         />
                         {isDropdownOpen && (
-                            <ul className="absolute -right-24 mt-4 w-48 bg-base-300 rounded-lg shadow-lg z-50">
+                            <ul className="absolute -right-24 mt-4 w-48 bg-white rounded-lg shadow-lg z-50">
                                 <li>
                                     <NavLink
                                         to="/myFoods"

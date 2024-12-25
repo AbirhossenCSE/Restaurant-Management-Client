@@ -65,7 +65,7 @@ const MyFood = () => {
 
     return (
         <div className="max-w-6xl mx-auto m-10">
-            <h2 className="text-2xl font-bold mb-6">My Foods</h2>
+            <h2 className="text-3xl text-center text-gray-600 font-bold mb-6">My Foods</h2>
             <div className="overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-300">
                     <thead>
