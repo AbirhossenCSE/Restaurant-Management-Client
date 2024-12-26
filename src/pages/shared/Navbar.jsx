@@ -32,10 +32,10 @@ const Navbar = () => {
     const links = (
         <>
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/gallery'>Gallery</NavLink></li>
-            <li><NavLink to='/allFoods'>All Foods</NavLink></li>
-            <li><NavLink to='/contact'>Contact Us</NavLink></li>
             <li><NavLink to='/menu'>Menu</NavLink></li>
+            <li><NavLink to='/allFoods'>All Foods</NavLink></li>
+            <li><NavLink to='/gallery'>Gallery</NavLink></li>
+            <li><NavLink to='/contact'>Contact Us</NavLink></li>
             {
                 user && (
                     <>
@@ -72,7 +72,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center'>
                     <img className='w-8 h-8 ml-4' src="https://i.ibb.co.com/K0n3nVX/Foodlogo.jpg" alt="" />
-                    <a className="btn btn-ghost text-xl"> Food Planet</a>
+                    <a className="btn btn-ghost text-xl font-bold"> Food Planet</a>
                 </div>
             </div>
 
@@ -83,7 +83,6 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end flex items-center gap-2">
-                {/* User Profile Dropdown */}
                 {user ? (
                     <div className="relative">
                         <img

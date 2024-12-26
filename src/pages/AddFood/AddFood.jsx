@@ -65,7 +65,7 @@ const AddFood = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-5 mb-10 p-6 bg-gray-100 rounded shadow">
+        <div className="max-w-4xl mx-auto mt-5 mb-10 p-6 bg-base-100 rounded shadow">
             <motion.h2
                 className="text-3xl text-center text-gray-600 font-bold mb-6"
                 initial={{ opacity: 0, y: -50 }}

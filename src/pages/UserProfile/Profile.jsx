@@ -5,7 +5,7 @@ const Profile = () => {
     const { user } = useAuth();
 
     return (
-        <div className="max-w-3xl mx-auto mb-4 p-6 bg-white shadow-md rounded mt-10">
+        <div className="max-w-3xl mx-auto mb-4 p-6 bg-base-100 shadow-md rounded mt-10">
             <h2 className="text-2xl font-bold text-center mb-6">User Profile</h2>
             <div className=''>
                     <figure className="pt-10">
