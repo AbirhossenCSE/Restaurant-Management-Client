@@ -10,21 +10,21 @@ const Header = () => {
     const slides = [
         {
             id: 1,
-            image: "https://i.ibb.co.com/28ShBXT/11.webp",
-            title: "Cricket",
-            description: "High-quality English willow cricket bat, perfect for professional and casual players.",
+            image: "https://i.ibb.co.com/M9KX0Bx/kacci.jpg",
+            title: "Kacchi Biryani",
+            description: "A popular Bangladeshi biryani made with marinated mutton, rice, and saffron-infused spices.",
         },
         {
             id: 2,
-            image: "https://i.ibb.co.com/RyPnRxq/22.jpg",
-            title: "Football",
-            description: "Premium FIFA-approved leather football, ideal for competitive matches.",
+            image: "https://i.ibb.co.com/tLSsLzG/shorshe-ilish.webp",
+            title: "Shorshe Ilish",
+            description: "A classic Bangladeshi dish of hilsa fish cooked in mustard seed paste and mustard oil.",
         },
         {
             id: 3,
-            image: "https://i.ibb.co.com/nkf0HLx/33.jpg",
-            title: "Badminton",
-            description: "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+            image: "https://i.ibb.co.com/swYC8Ys/Mishti-Doi.jpg",
+            title: "Mishti Doi",
+            description: "A traditional Bangladeshi dessert made with sweetened fermented yogurt.",
         },
     ];
 

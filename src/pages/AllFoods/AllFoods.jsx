@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AllFoodCard from './AllFoodCard';
+import { motion } from 'framer-motion';
 
 const AllFoods = () => {
     const [foods, setFoods] = useState([]);
@@ -18,7 +19,14 @@ const AllFoods = () => {
 
     return (
         <div className='bg-base-200 rounded-lg p-4'>
-            <h2 className='text-3xl text-center font-bold p-12'>All Food Items</h2>
+            <motion.h2
+                className="text-3xl text-center font-bold p-12"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+            >
+                All Food Items
+            </motion.h2>
             <div className='flex justify-center mb-6'>
                 <input
                     type="text"

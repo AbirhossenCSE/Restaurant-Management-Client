@@ -34,6 +34,14 @@ const Navbar = () => {
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/gallery'>Gallery</NavLink></li>
             <li><NavLink to='/allFoods'>All Foods</NavLink></li>
+            <li><NavLink to='/contact'>Contact Us</NavLink></li>
+            {
+                user && (
+                    <>
+                        <li><NavLink to='/profile'>Profile</NavLink></li>
+                    </>
+                )
+            }
         </>
     );
 
@@ -61,7 +69,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">My Restaurant</a>
+                <div className='flex items-center'>
+                    <img className='w-8 h-8 ml-4' src="https://i.ibb.co.com/K0n3nVX/Foodlogo.jpg" alt="" />
+                    <a className="btn btn-ghost text-xl"> Food Planet</a>
+                </div>
             </div>
 
             <div className="navbar-center hidden lg:flex">

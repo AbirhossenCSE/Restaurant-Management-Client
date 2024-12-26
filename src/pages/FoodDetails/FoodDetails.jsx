@@ -4,11 +4,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const FoodDetails = () => {
     const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description, purchaseCount } = useLoaderData();
+    console.log(foodName, foodImage, foodCategory, price);
+
     return (
         <div>
             <div className="card bg-base-200 w-4/6 mx-auto my-16 shadow-xl">
                 <figure>
                     <img
+                        className='p-2 rounded-xl'
                         src={foodImage}
                         alt={foodName} />
                 </figure>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 import registerLottie from '../../assets/Lottile/register.json'
@@ -10,6 +10,7 @@ import Lottie from 'lottie-react';
 const Register = () => {
     const { createUser, setUser } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     // State to manage password visibility
     const [showPassword, setShowPassword] = useState(false);
@@ -56,7 +57,7 @@ const Register = () => {
                     timerProgressBar: true,
                 });
                 setTimeout(() => {
-                    navigate('/');
+                    navigate(location?.state ? location.state : '/');
                 }, 3000);
             })
             .catch(error => {
@@ -89,7 +90,7 @@ const Register = () => {
     };
 
     return (
-        <div className="bg-base-200">
+        <div className="hero bg-base-100 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-96">
                     <Lottie animationData={registerLottie}></Lottie>

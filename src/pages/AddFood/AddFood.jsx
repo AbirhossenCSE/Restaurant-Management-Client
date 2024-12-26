@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const AddFood = () => {
     const { user } = useAuth();
@@ -65,7 +66,14 @@ const AddFood = () => {
 
     return (
         <div className="max-w-4xl mx-auto mt-5 mb-10 p-6 bg-gray-100 rounded shadow">
-            <h2 className="text-3xl text-center text-gray-600 font-bold mb-6">Add New Food Item</h2>
+            <motion.h2
+                className="text-3xl text-center text-gray-600 font-bold mb-6"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+            >
+                Add New Food Item
+            </motion.h2>
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-4">
                     <div>

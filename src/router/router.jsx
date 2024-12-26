@@ -14,12 +14,15 @@ import AddFood from "../pages/AddFood/AddFood";
 import MyFood from "../pages/AddFood/MyFood";
 import UpdateFood from "../pages/AddFood/UpdateFood";
 import GalleryPage from "../pages/Gallary/GalleryPage";
+import Error from "../pages/ErrorPage/Error";
+import Profile from "../pages/UserProfile/Profile";
+import ContactUs from "../pages/ExtraSec/ContactUs";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <h2>Page not found</h2>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -59,6 +62,14 @@ const router = createBrowserRouter([
             {
                 path: 'my-order',
                 element: <PrivateRoute><MyOrder></MyOrder></PrivateRoute>,
+            },
+            {
+                path: 'profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+            },
+            {
+                path: 'contact',
+                element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>,
             },
             {
                 path: '/register',

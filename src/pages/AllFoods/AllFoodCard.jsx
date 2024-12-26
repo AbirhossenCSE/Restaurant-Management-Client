@@ -8,6 +8,7 @@ const AllFoodCard = ({ food }) => {
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
                 <img
+                    className='w-11/12 h-72 p-2 rounded-xl'
                     src={foodImage}
                     alt={foodName} />
             </figure>

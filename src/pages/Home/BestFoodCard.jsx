@@ -10,15 +10,16 @@ const BestFoodCard = ({ food }) => {
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
                 <img
+                    className='w-11/12 h-72 p-2 rounded-xl'
                     src={foodImage}
                     alt={foodName} />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{foodName}</h2>
-                <p><strong>Price:</strong> {price} </p>
-                <p><strong>Category:</strong> {foodCategory} </p>
-                <p><strong>Food Origin:</strong> {foodOrigin} </p>
-                <p><strong>Total Order:</strong> {purchaseCount || 0} </p>
+                <p className='mb-1 ml-2'><strong>Price:</strong> {price} </p>
+                <p className='mb-1 ml-2'><strong>Category:</strong> {foodCategory} </p>
+                <p className='mb-1 ml-2'><strong>Food Origin:</strong> {foodOrigin} </p>
+                <p className='mb-1 ml-2'><strong>Total Sales:</strong> {purchaseCount || 0} </p>
                 <div className="">
                     <Link to={`/foods/${_id}`}>
                         <button className="btn bg-[#cacfd2] w-full">View Details</button>
