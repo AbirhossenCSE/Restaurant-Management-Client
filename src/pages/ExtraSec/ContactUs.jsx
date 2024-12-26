@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -39,8 +40,15 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold text-center mb-6">Contact Us</h2>
+        <div className="container mx-auto p-4 my-10">
+            <motion.h2
+                className="text-3xl text-center font-bold p-12"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+            >
+                Contact Us
+            </motion.h2>
             <div className="md:w-2/3 p-4 mx-auto">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <input

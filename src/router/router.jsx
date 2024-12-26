@@ -17,6 +17,7 @@ import GalleryPage from "../pages/Gallary/GalleryPage";
 import Error from "../pages/ErrorPage/Error";
 import Profile from "../pages/UserProfile/Profile";
 import ContactUs from "../pages/ExtraSec/ContactUs";
+import Menu from "../pages/ExtraSec/Menu";
 
 const router = createBrowserRouter([
     {
@@ -69,7 +70,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'contact',
-                element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>,
+                element: <ContactUs></ContactUs>,
+            },
+            {
+                path: 'menu',
+                element: <Menu></Menu>,
             },
             {
                 path: '/register',

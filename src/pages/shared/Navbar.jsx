@@ -35,6 +35,7 @@ const Navbar = () => {
             <li><NavLink to='/gallery'>Gallery</NavLink></li>
             <li><NavLink to='/allFoods'>All Foods</NavLink></li>
             <li><NavLink to='/contact'>Contact Us</NavLink></li>
+            <li><NavLink to='/menu'>Menu</NavLink></li>
             {
                 user && (
                     <>
