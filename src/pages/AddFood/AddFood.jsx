@@ -35,7 +35,7 @@ const AddFood = () => {
 
         // Post data to the server
         axios
-            .post('http://localhost:5000/foods', dataToSubmit)
+            .post('https://restaurant-management-server-rho.vercel.app/foods', dataToSubmit)
             .then((res) => {
                 if (res.status === 201) {
                     Swal.fire({

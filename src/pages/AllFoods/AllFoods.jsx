@@ -8,7 +8,7 @@ const AllFoods = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/foods')
+        axios.get('https://restaurant-management-server-rho.vercel.app/foods')
             .then(res => setFoods(res.data));
     }, []);
 

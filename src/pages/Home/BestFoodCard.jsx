@@ -15,7 +15,7 @@ const BestFoodCard = ({ food }) => {
                     alt={foodName} />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{foodName}</h2>
+                <h2 className="card-title ml-2 font-bold">{foodName}</h2>
                 <p className='mb-1 ml-2'><strong>Price:</strong> {price} </p>
                 <p className='mb-1 ml-2'><strong>Category:</strong> {foodCategory} </p>
                 <p className='mb-1 ml-2'><strong>Food Origin:</strong> {foodOrigin} </p>

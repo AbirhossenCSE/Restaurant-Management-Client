@@ -14,7 +14,7 @@ const MyFood = () => {
     useEffect(() => {
         // Fetch all foods added by the current user based on email
         axios
-            .get(`http://localhost:5000/myFood?email=${user?.email}`)
+            .get(`https://restaurant-management-server-rho.vercel.app/myFood?email=${user?.email}`)
             .then((response) => {
                 setFoods(response.data);
             })
@@ -40,7 +40,7 @@ const MyFood = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(`http://localhost:5000/foods/${foodId}`)
+                    .delete(`https://restaurant-management-server-rho.vercel.app/foods/${foodId}`)
                     .then(() => {
                         setFoods(foods.filter((food) => food._id !== foodId));
                         Swal.fire(

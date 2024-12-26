@@ -10,7 +10,7 @@ const Menu = () => {
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/foods');
+                const response = await axios.get('https://restaurant-management-server-rho.vercel.app/foods');
                 setMenuItems(response.data);
             } catch (err) {
                 setError('Failed to fetch menu items.');
@@ -22,7 +22,7 @@ const Menu = () => {
         fetchMenu();
     }, []);
 
-    if (loading) return <div>Loading menu...</div>;
+    if (loading) return <div><span className="loading loading-spinner loading-lg"></span></div>;
     if (error) return <div>{error}</div>;
 
     return (

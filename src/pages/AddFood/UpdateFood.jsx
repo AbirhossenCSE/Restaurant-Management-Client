@@ -26,7 +26,7 @@ const UpdateFood = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
         axios
-            .put(`http://localhost:5000/foods/${_id}`, formData)
+            .put(`https://restaurant-management-server-rho.vercel.app/foods/${_id}`, formData)
             .then(() => {
                 Swal.fire(
                     'Updated!',

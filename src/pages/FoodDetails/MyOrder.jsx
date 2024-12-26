@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/food-purchase?email=${user?.email}`)
+            .get(`https://restaurant-management-server-rho.vercel.app/food-purchase?email=${user?.email}`)
             .then(res => setFoods(res.data))
             .catch(err => console.error("Error fetching orders:", err));
     }, [user.email]);
@@ -30,7 +30,7 @@ const MyOrder = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(`http://localhost:5000/food-purchase/${orderId}`)
+                    .delete(`https://restaurant-management-server-rho.vercel.app/food-purchase/${orderId}`)
                     .then(() => {
                         setFoods(foods.filter((food) => food._id !== orderId));
                         Swal.fire({

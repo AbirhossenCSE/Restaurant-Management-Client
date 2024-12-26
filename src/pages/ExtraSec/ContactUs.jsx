@@ -21,7 +21,7 @@ const ContactUs = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/contact', formData);
+            const response = await axios.post('https://restaurant-management-server-rho.vercel.app/contact', formData);
             Swal.fire({
                 title: 'Message Sent!',
                 text: response.data.message,

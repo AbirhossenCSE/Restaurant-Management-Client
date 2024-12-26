@@ -38,7 +38,7 @@ const FoodPurchase = () => {
             buyingDate: new Date(),
         };
 
-        axios.post('http://localhost:5000/food-purchase', purchaseData)
+        axios.post('https://restaurant-management-server-rho.vercel.app/food-purchase', purchaseData)
             .then(res => {
                 if (res.data.success) {
                     Swal.fire({

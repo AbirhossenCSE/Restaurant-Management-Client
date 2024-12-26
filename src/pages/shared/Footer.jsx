@@ -1,9 +1,10 @@
+import { div } from 'framer-motion/client';
 import React from 'react';
 
 const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
-            <aside>
+            <aside className='ml-24'>
                 <img className='w-24 h-16 mx-auto' src="https://i.ibb.co/K0n3nVX/Foodlogo.jpg" alt="Food Planet Logo" />
                 <p className="font-bold text-lg">
                     Food Planet Restaurant

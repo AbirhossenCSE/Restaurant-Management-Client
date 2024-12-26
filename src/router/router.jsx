@@ -48,17 +48,17 @@ const router = createBrowserRouter([
             {
                 path: '/update-food/:id',
                 element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`),
+                loader: ({ params }) => fetch(`https://restaurant-management-server-rho.vercel.app/foods/${params.id}`),
             },
             {
                 path: 'foods/:id',
                 element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({ params }) => fetch(`https://restaurant-management-server-rho.vercel.app/foods/${params.id}`)
             },
             {
                 path: 'foodPurchase/:id',
                 element: <PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({ params }) => fetch(`https://restaurant-management-server-rho.vercel.app/foods/${params.id}`)
             },
             {
                 path: 'my-order',
