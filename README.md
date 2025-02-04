@@ -36,7 +36,7 @@ This project is a **Food Restaurant Website** built with **React** and **Vite**.
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/AbirhossenCSE/Restaurant-Management-Client.git
-   cd employee-management-system
+   cd Restaurant-Management-Client
    ```
 
 2. **Install dependencies:**
