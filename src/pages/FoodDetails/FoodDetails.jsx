@@ -8,7 +8,7 @@ const FoodDetails = () => {
 
     return (
         <div>
-            <div className="card bg-base-200 w-4/6 mx-auto my-16 shadow-xl">
+            <div className="card bg-base-200 w-4/6 mx-auto shadow-xl">
                 <figure>
                     <img
                         className='p-2 rounded-xl'

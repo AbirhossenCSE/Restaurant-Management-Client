@@ -7,10 +7,10 @@ const BestFoodCard = ({ food }) => {
     const { _id, foodName, foodImage, foodCategory, price, quantity, foodOrigin, description, purchaseCount } = food;
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-200 p-2 shadow-xl">
             <figure>
                 <img
-                    className='w-11/12 h-72 p-2 rounded-xl'
+                    className='w-10/12 h-72 mt-2 rounded-xl transition-transform duration-300 hover:scale-110'
                     src={foodImage}
                     alt={foodName} />
             </figure>

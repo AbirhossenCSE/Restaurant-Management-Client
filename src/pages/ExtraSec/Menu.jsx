@@ -37,12 +37,12 @@ const Menu = () => {
             </motion.h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {menuItems.map((item) => (
-                    <div key={item._id} className="bg-white shadow-lg rounded-lg p-4">
+                    <div key={item._id} className="bg-white shadow-lg rounded-lg p-4 transition-all duration-300 hover:scale-110 hover:bg-gray-300 hover:text-black">
                         <div className='flex items-center gap-2 p-2'>
                             <img className='w-10 h-10' src={item.foodImage} alt="" />
                             <h3 className="text-2xl font-bold">{item.foodName}</h3>
                         </div>
-                        <p className="text-gray-500 p-2">{item.description}</p>
+                        <p className="p-2">{item.description}</p>
                         <div className="flex justify-between p-2 items-center mt-4">
                             <span className="text-lg font-semibold">Price: ${item.price}</span>
                         </div>
