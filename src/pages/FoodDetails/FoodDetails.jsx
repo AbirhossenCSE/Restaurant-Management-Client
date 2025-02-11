@@ -8,15 +8,15 @@ const FoodDetails = () => {
 
     return (
         <div>
-            <div className="card bg-base-200 w-4/6 mx-auto shadow-xl">
+            <div className="card bg-base-200 w-4/6 mx-auto">
                 <figure>
                     <img
-                        className='p-2 rounded-xl'
+                        className='p-2 rounded-xl mt-24'
                         src={foodImage}
                         alt={foodName} />
                 </figure>
                 <div className="card-body">
-                    <h2 className="text-4xl font-bold text-gray-500 mx-auto">
+                    <h2 className="text-4xl font-bold text-gray-700 mx-auto">
                         {foodName}
                     </h2>
                     <div className='p-4 '>

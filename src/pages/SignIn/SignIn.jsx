@@ -39,7 +39,7 @@ const SignIn = () => {
                 });
 
                 setTimeout(() => {
-                    navigate(location?.state ? location.state : '/');
+                    navigate(location?.state ? location.state : '/'); 
                 }, 2000);
             })
             .catch(error => {

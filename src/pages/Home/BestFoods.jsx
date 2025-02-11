@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 
 const BestFoods = () => {
     const [foods, setFoods] = useState([]);
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         fetch('https://restaurant-management-server-rho.vercel.app/foods-six')
             .then(res => res.json())
             .then(data => {
                 setFoods(data);
-            });
+                setLoading(false); 
+            })
+            .catch(() => setLoading(false));
     }, []);
 
     return (
@@ -25,19 +28,27 @@ const BestFoods = () => {
                 Top Sales Food Items
             </motion.h2>
 
-            {/* Food Cards */}
-            <div className="bg-base-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-12">
-                {foods.map(food => (
-                    <BestFoodCard key={food._id} food={food}></BestFoodCard>
-                ))}
-            </div>
+            {loading ? (
+                <div className="flex justify-center items-center h-64">
+                    <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
+                </div>
+            ) : (
+                <>
+                    {/* Food Cards */}
+                    <div className="bg-base-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-12">
+                        {foods.map(food => (
+                            <BestFoodCard key={food._id} food={food}></BestFoodCard>
+                        ))}
+                    </div>
 
-            {/* See All Foods Button */}
-            <div className="flex justify-center">
-                <Link to={'/allFoods'} className="btn m-10 bg-green-300">
-                    See All Foods
-                </Link>
-            </div>
+                    {/* See All Foods Button */}
+                    <div className="flex justify-center">
+                        <Link to={'/allFoods'} className="btn m-10 bg-green-300">
+                            See All Foods
+                        </Link>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

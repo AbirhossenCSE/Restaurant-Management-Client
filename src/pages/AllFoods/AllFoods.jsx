@@ -6,10 +6,14 @@ import { motion } from 'framer-motion';
 const AllFoods = () => {
     const [foods, setFoods] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios.get('https://restaurant-management-server-rho.vercel.app/foods')
-            .then(res => setFoods(res.data));
+            .then(res => {
+                setFoods(res.data);
+                setLoading(false);
+            });
     }, []);
 
     // Filter foods based on search query
@@ -36,11 +40,16 @@ const AllFoods = () => {
                     onChange={e => setSearchQuery(e.target.value)}
                 />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {filteredFoods.map(food => (
-                    <AllFoodCard key={food._id} food={food}></AllFoodCard>
-                ))}
-            </div>
+            {
+                loading ? (<div className="flex justify-center items-center h-64">
+                    <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
+                </div>) : (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    {filteredFoods.map(food => (
+                        <AllFoodCard key={food._id} food={food}></AllFoodCard>
+                    ))}
+                </div>)
+            }
+
         </div>
     );
 };

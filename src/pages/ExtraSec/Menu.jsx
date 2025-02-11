@@ -22,7 +22,6 @@ const Menu = () => {
         fetchMenu();
     }, []);
 
-    if (loading) return <div><span className="loading loading-spinner loading-lg"></span></div>;
     if (error) return <div>{error}</div>;
 
     return (
@@ -35,7 +34,10 @@ const Menu = () => {
             >
                 Our Menu
             </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            {loading ? (<div className="flex justify-center items-center h-64">
+                <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
+            </div>) : (<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {menuItems.map((item) => (
                     <div key={item._id} className="bg-white shadow-lg rounded-lg p-4 transition-all duration-300 hover:scale-110 hover:bg-gray-300 hover:text-black">
                         <div className='flex items-center gap-2 p-2'>
@@ -48,7 +50,8 @@ const Menu = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div>)}
+
         </div>
     );
 };
