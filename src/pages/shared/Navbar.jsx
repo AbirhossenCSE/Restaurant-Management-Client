@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { FaMoon, FaRegUser } from 'react-icons/fa';
 import { FiSun } from 'react-icons/fi';
@@ -7,7 +7,8 @@ import { FiSun } from 'react-icons/fi';
 const Navbar = () => {
     const { user, signOutUser } = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [theme, setTheme] = useState('light'); // Default theme
+    const [theme, setTheme] = useState('light');
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
         signOutUser()
@@ -70,7 +71,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className='flex items-center'>
+                <div className='flex items-center' onClick={() => navigate('/')}>
                     <img className='w-8 h-8 ml-4' src="https://i.ibb.co.com/K0n3nVX/Foodlogo.jpg" alt="" />
                     <a className="btn btn-ghost text-xl font-bold"> Food Planet</a>
                 </div>

@@ -28,7 +28,7 @@ const Menu = () => {
     return (
         <div className="container w-8/12 mx-auto p-4">
             <motion.h2
-                className="text-3xl text-center font-bold p-12"
+                className="text-3xl text-center mt-5 font-bold p-12"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}

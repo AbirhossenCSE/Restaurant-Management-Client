@@ -40,9 +40,9 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mx-auto p-4 my-10">
+        <div className="container mx-auto p-4">
             <motion.h2
-                className="text-3xl text-center font-bold p-12"
+                className="text-3xl text-center font-bold mt-8 p-12"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
