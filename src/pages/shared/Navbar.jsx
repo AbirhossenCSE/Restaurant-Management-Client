@@ -47,8 +47,8 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-base-300">
-            <div className="navbar-start">
+        <div className="navbar bg-base-300 fixed z-10 bg-opacity-90">
+            <div className="navbar-start ml-8">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -82,7 +82,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="navbar-end flex items-center gap-2">
+            <div className="navbar-end mr-8 flex items-center gap-2">
                 {user ? (
                     <div className="relative">
                         <img
@@ -133,7 +133,7 @@ const Navbar = () => {
                     </button>
                 ) : (
                     <>
-                        <Link to='/register' className='mr-2'>Register</Link>
+                        {/* <Link to='/register' className='mr-2'>Register</Link> */}
                         <Link to='/signin'>Sign-In</Link>
                     </>
                 )}

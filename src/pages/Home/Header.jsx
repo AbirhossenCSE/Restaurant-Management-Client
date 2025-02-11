@@ -26,6 +26,12 @@ const Header = () => {
             title: "Mishti Doi",
             description: "A traditional Bangladeshi dessert made with sweetened fermented yogurt.",
         },
+        {
+            id: 4,
+            image: "https://i.ibb.co.com/wrdQWpNz/123123.jpg",
+            title: "Teheri",
+            description: "A traditional Bangladeshi dessert made with sweetened fermented yogurt.",
+        },
     ];
 
     return (
@@ -42,7 +48,7 @@ const Header = () => {
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id}>
-                            <div className="relative h-[400px]">
+                            <div className="relative mt-16 h-[400px]">
                                 <img
                                     src={slide.image}
                                     alt={slide.title}
