@@ -20,7 +20,7 @@ const BestFoods = () => {
     return (
         <div className="w-11/12 mx-auto">
             <motion.h2
-                className="text-center text-3xl font-bold text-gray-500 m-4"
+                className="text-center text-3xl font-bold text-gray-500 m-4 py-6"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
@@ -35,7 +35,7 @@ const BestFoods = () => {
             ) : (
                 <>
                     {/* Food Cards */}
-                    <div className="bg-base-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-12">
+                    <div className="bg-base-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                         {foods.map(food => (
                             <BestFoodCard key={food._id} food={food}></BestFoodCard>
                         ))}

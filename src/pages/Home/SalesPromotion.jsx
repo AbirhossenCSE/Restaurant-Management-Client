@@ -40,7 +40,7 @@ const SalesPromotion = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto py-10 px-4">
+        <div className="max-w-6xl rounded-lg mx-auto py-10 px-4">
             <motion.h2
                 className="text-center text-3xl font-bold text-gray-500 m-4"
                 initial={{ opacity: 0, y: -50 }}

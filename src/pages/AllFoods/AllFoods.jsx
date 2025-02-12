@@ -67,7 +67,7 @@ const AllFoods = () => {
                     <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {sortedFoods.map((food) => (
                         <AllFoodCard key={food._id} food={food} />
                     ))}

@@ -43,7 +43,7 @@ const ReviewPage = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-10">
+    <div className="max-w-full bg-base-100 mx-auto py-10">
       <motion.h2
                 className="text-center text-3xl font-bold text-gray-500 m-4"
                 initial={{ opacity: 0, y: -50 }}

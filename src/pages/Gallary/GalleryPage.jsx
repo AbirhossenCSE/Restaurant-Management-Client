@@ -28,7 +28,7 @@ const GalleryPage = () => {
     return (
         <div className="min-h-screen">
             {/* Page Title */}
-            <div className="bg-cover bg-center h-64 flex items-center justify-center" style={{ backgroundImage: "url('https://i.ibb.co.com/3FhDkqY/gal.jpg')" }}>
+            <div className="bg-cover bg-center h-96 flex items-center justify-center" style={{ backgroundImage: "url('https://i.ibb.co.com/3FhDkqY/gal.jpg')" }}>
                 <h1 className="text-4xl font-bold text-white bg-black bg-opacity-50 px-4 py-2 rounded">
                     Food Gallery
                 </h1>
