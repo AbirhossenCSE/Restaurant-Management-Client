@@ -20,7 +20,7 @@ const AllFoodCard = ({ food }) => {
                 <p><strong>Total Order:</strong> {purchaseCount || 0} </p>
                 <div className="">
                     <Link to={`/foods/${_id}`}>
-                        <button className="btn bg-[#cacfd2] w-full text-green-700 ">View Details</button>
+                        <button className="btn bg-gray-400 w-full text-white ">View Details</button>
                     </Link>
                 </div>
             </div>

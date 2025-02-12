@@ -43,7 +43,7 @@ const BestFoods = () => {
 
                     {/* See All Foods Button */}
                     <div className="flex justify-center">
-                        <Link to={'/allFoods'} className="btn m-10 bg-green-300">
+                        <Link to={'/allFoods'} className="btn m-10 bg-gray-400 text-white">
                             See All Foods
                         </Link>
                     </div>

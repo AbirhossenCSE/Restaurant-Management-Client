@@ -27,19 +27,19 @@ const Profile = () => {
             <div className="grid grid-cols-2 gap-6">
                 <div className="mx-auto mt-8">
                     <h4 className="font-semibold text-center">Full Name</h4>
-                    <p className="text-gray-700 text-center">{user?.displayName || 'N/A'}</p>
+                    <p className="text-gray-500 text-center">{user?.displayName || 'N/A'}</p>
                 </div>
                 <div className="mx-auto mt-8">
                     <h4 className="font-semibold text-center">Email Address</h4>
-                    <p className="text-gray-700 text-center">{user?.email || 'N/A'}</p>
+                    <p className="text-gray-500 text-center">{user?.email || 'N/A'}</p>
                 </div>
                 <div className="mx-auto mt-8">
                     <h4 className="font-semibold text-center">Phone Number</h4>
-                    <p className="text-gray-700 text-center">{user?.phone || 'Not Provided'}</p>
+                    <p className="text-gray-500 text-center">{user?.phone || 'Not Provided'}</p>
                 </div>
                 <div className="mx-auto mt-8">
                     <h4 className="font-semibold text-center">Address</h4>
-                    <p className="text-gray-700 text-center">{user?.address || 'Not Provided'}</p>
+                    <p className="text-gray-500 text-center">{user?.address || 'Not Provided'}</p>
                 </div>
             </div>
         </div>
