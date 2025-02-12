@@ -3,6 +3,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from 'framer-motion';
 
 const ReviewPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -43,7 +44,14 @@ const ReviewPage = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-10">
-      <h2 className="text-3xl font-bold text-center mb-8">Customer Reviews</h2>
+      <motion.h2
+                className="text-center text-3xl font-bold text-gray-500 m-4"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+            >
+                Reviews
+            </motion.h2>
       <Slider {...sliderSettings}>
         {reviews.map(review => (
           <div key={review._id} className="px-4">

@@ -3,13 +3,14 @@ import Header from './Header';
 import BestFoods from './BestFoods';
 import ContactUs from '../ExtraSec/ContactUs';
 import ReviewPage from './ReviewPage';
+import SalesPromotion from './SalesPromotion';
 
 const Home = () => {
     return (
         <div>
             <Header></Header>
             <BestFoods></BestFoods>
-            {/* <ContactUs></ContactUs> */}
+            <SalesPromotion></SalesPromotion>
             <ReviewPage></ReviewPage>
         </div>
     );
