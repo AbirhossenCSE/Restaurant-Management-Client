@@ -40,6 +40,7 @@ const Navbar = () => {
             {
                 user && (
                     <>
+                        <li><NavLink to='/addFoods'>Add Foods</NavLink></li>
                         <li><NavLink to='/profile'>Profile</NavLink></li>
                     </>
                 )

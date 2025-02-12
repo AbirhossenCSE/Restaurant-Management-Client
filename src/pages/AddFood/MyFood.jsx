@@ -9,22 +9,23 @@ import { motion } from 'framer-motion';
 const MyFood = () => {
     const { user } = useAuth();
     const [foods, setFoods] = useState([]);
+    const [loading, setLoading] = useState(true); // Added loading state
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch all foods added by the current user based on email
         axios
             .get(`https://restaurant-management-server-rho.vercel.app/myFood?email=${user?.email}`)
             .then((response) => {
                 setFoods(response.data);
+                setLoading(false); // Set loading to false when data is fetched
             })
             .catch((error) => {
                 console.error('Error fetching foods:', error);
+                setLoading(false);
             });
     }, [user?.email]);
 
     const handleUpdate = (foodId) => {
-        // Redirect to the update page
         navigate(`/update-food/${foodId}`);
     };
 
@@ -43,36 +44,29 @@ const MyFood = () => {
                     .delete(`https://restaurant-management-server-rho.vercel.app/foods/${foodId}`)
                     .then(() => {
                         setFoods(foods.filter((food) => food._id !== foodId));
-                        Swal.fire(
-                            'Deleted!',
-                            'Your food item has been deleted.',
-                            'success'
-                        );
+                        Swal.fire('Deleted!', 'Your food item has been deleted.', 'success');
                     })
                     .catch((error) => {
                         console.error('Error deleting food:', error);
-                        Swal.fire(
-                            'Error!',
-                            'Failed to delete the food item.',
-                            'error'
-                        );
+                        Swal.fire('Error!', 'Failed to delete the food item.', 'error');
                     });
             }
         });
     };
 
-
-
-
     return (
-        <div className="max-w-6xl mx-auto m-10">
-            {
+        <div className="max-w-6xl mx-auto">
+            {loading ? (
+                <div className="flex justify-center items-center h-screen">
+                    <div className="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                </div>
+            ) : (
                 foods.length === 0 ? (
-                    <p className='text-4xl font-bold text-center text-red-600 m-32'>No Food Added By You</p>
+                    <p className='text-4xl font-bold text-center text-red-600 mt-20'>No Food Added By You</p>
                 ) : (
                     <div className="overflow-x-auto">
                         <motion.h2
-                            className="text-3xl text-center text-gray-600 font-bold mb-6"
+                            className="text-3xl text-center text-gray-600 font-bold mt-20 mb-6"
                             initial={{ opacity: 0, y: -50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, ease: 'easeInOut' }}
@@ -107,7 +101,6 @@ const MyFood = () => {
                                         </td>
                                         <td className="border border-gray-300 px-4 py-2 text-center">${food.price}</td>
                                         <td className="flex border border-gray-300 px-2 py-2 text-center">
-
                                             <div className='w-1/2'>
                                                 <Link to={`/update-food/${food._id}`}>
                                                     <button className="btn join-item w-full bg-gray-600 text-white">Update</button>
@@ -128,7 +121,7 @@ const MyFood = () => {
                         </table>
                     </div>
                 )
-            }
+            )}
         </div>
     );
 };

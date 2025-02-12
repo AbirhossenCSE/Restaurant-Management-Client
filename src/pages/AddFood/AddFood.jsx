@@ -65,9 +65,9 @@ const AddFood = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-5 mb-10 p-6 bg-base-100 rounded shadow">
+        <div className="max-w-4xl mx-auto mb-10 p-6 bg-base-100 rounded shadow">
             <motion.h2
-                className="text-3xl text-center text-gray-600 font-bold mb-6"
+                className="text-3xl mt-20 text-center text-gray-600 font-bold mb-6"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
