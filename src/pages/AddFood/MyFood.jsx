@@ -62,7 +62,9 @@ const MyFood = () => {
                 </div>
             ) : (
                 foods.length === 0 ? (
-                    <p className='text-4xl font-bold text-center text-red-600 mt-20'>No Food Added By You</p>
+                    <div className="flex justify-center items-center h-[80vh]">
+                        <p className="text-4xl font-bold text-red-600">No Food Added By You</p>
+                    </div>
                 ) : (
                     <div className="overflow-x-auto">
                         <motion.h2

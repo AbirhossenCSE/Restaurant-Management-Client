@@ -9,17 +9,17 @@ import { motion } from 'framer-motion';
 const MyOrder = () => {
     const { user } = useAuth();
     const [foods, setFoods] = useState([]);
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         axios
             .get(`https://restaurant-management-server-rho.vercel.app/food-purchase?email=${user?.email}`)
             .then(res => {
                 setFoods(res.data);
-                setLoading(false); 
+                setLoading(false);
             })
             .catch(err => {
                 console.error("Error fetching orders:", err);
-                setLoading(false); 
+                setLoading(false);
             });
     }, [user.email]);
 
@@ -58,7 +58,9 @@ const MyOrder = () => {
                     <div className="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
                 </div>
             ) : foods.length === 0 ? (
-                <p className='text-4xl font-bold text-center text-red-600 m-32 mt-20'>No Order Yet</p>
+                <div className="flex justify-center items-center h-[80vh]">
+                    <p className="text-4xl font-bold text-red-600">No Order Yet</p>
+                </div>
             ) : (
                 <div className="overflow-x-auto">
                     <motion.h2
