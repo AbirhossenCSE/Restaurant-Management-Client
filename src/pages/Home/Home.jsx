@@ -11,13 +11,9 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
-            <div className='bg-gray-100'>
-                <BestFoods></BestFoods>
-            </div>
+            <BestFoods></BestFoods>
             <SalesPromotion></SalesPromotion>
-            <div className='bg-gray-100'>
-                <Faq></Faq>
-            </div>
+            <Faq></Faq>
             <ReviewPage></ReviewPage>
             <Newsletter></Newsletter>
         </div>

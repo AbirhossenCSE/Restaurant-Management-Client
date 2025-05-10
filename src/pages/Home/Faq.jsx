@@ -42,7 +42,7 @@ const Faq = () => {
     };
 
     return (
-        <div className="faq-container w-9/12 mx-auto p-6 mb-10">
+        <div className="faq-container max-w-6xl mx-auto p-6 mb-10">
             <motion.h2
                 className="text-center my-8 text-3xl font-bold text-gray-500"
                 initial={{ opacity: 0, y: -50 }}

@@ -16,7 +16,7 @@ const BestFoodCard = ({ food }) => {
     } = food;
 
     return (
-        <div className="card bg-gray-200 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105">
+        <div className="card bg-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300">
             <figure className="relative">
                 <img
                     src={foodImage}
