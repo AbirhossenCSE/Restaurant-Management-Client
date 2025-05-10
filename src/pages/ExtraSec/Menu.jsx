@@ -25,7 +25,7 @@ const Menu = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="container w-8/12 mx-auto p-4">
+        <div className="container max-w-6xl bg-base-200 mb-6 mx-auto p-4">
             <motion.h2
                 className="text-3xl text-center mt-5 font-bold p-12"
                 initial={{ opacity: 0, y: -50 }}
@@ -39,7 +39,7 @@ const Menu = () => {
                 <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
             </div>) : (<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {menuItems.map((item) => (
-                    <div key={item._id} className="bg-white shadow-lg rounded-lg p-4 transition-all duration-300 hover:scale-110 hover:bg-gray-300 hover:text-black">
+                    <div key={item._id} className="shadow-lg rounded-lg p-4 transition-all duration-300 hover:bg-gray-400 hover:text-black">
                         <div className='flex items-center gap-2 p-2'>
                             <img className='w-10 h-10' src={item.foodImage} alt="" />
                             <h3 className="text-2xl font-bold">{item.foodName}</h3>

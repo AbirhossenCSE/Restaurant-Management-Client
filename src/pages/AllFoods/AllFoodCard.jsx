@@ -6,7 +6,7 @@ const AllFoodCard = ({ food }) => {
     const { _id, foodName, foodImage, foodCategory, price, foodOrigin, description, purchaseCount } = food;
 
     return (
-        <div className="card bg-gray-200 shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105">
+        <div className="card bg-gray-200 shadow-lg rounded-lg overflow-hidden transform transition duration-300 h-full flex flex-col">
             <figure className="relative">
                 <img
                     src={foodImage}
@@ -19,7 +19,7 @@ const AllFoodCard = ({ food }) => {
             </figure>
 
             {/* Card Content */}
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-grow">
                 <h2 className="text-xl font-bold text-gray-800 mb-2">{foodName}</h2>
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
                     <span>{foodCategory}</span>
@@ -31,7 +31,7 @@ const AllFoodCard = ({ food }) => {
                 <p className="text-gray-700 text-sm mb-2">
                     {description.length > 100 ? description.slice(0, 100) + '...' : description}
                 </p>
-                <div className="flex justify-between items-center text-sm text-gray-600">
+                <div className="mt-auto flex justify-between items-center text-sm text-gray-600">
                     <span>
                         Total Order: <span className="font-semibold text-gray-800">{purchaseCount || 0}</span>
                     </span>
