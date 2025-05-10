@@ -13,7 +13,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="max-w-3xl mx-auto mb-4 p-6 bg-base-100">
+        <div className="max-w-3xl mx-auto mb-20 p-6 bg-base-100">
             <h2 className="text-2xl font-bold text-center mt-24">User Profile</h2>
             <div>
                 <figure className="pt-10">

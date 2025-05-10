@@ -65,7 +65,7 @@ const AddFood = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mb-10 p-6 bg-base-100 rounded shadow">
+        <div className="max-w-3xl mx-auto mb-10 p-6 bg-base-100 rounded shadow">
             <motion.h2
                 className="text-3xl mt-20 text-center text-gray-600 font-bold mb-6"
                 initial={{ opacity: 0, y: -50 }}
@@ -162,12 +162,13 @@ const AddFood = () => {
                         ></textarea>
                     </div>
                 </div>
-                <button
+                {/* <button
                     type="submit"
-                    className="w-full mt-6 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+                    className="w-full mt-6 btn btn-neutral  px-6 py-2 rounded"
                 >
                     Add Food Item
-                </button>
+                </button> */}
+                <button type="submit" className="w-full mt-6 px-6 py-2 btn btn-neutral text-sm">Add Food Item</button>
             </form>
         </div>
     );

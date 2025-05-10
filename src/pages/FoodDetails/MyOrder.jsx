@@ -52,7 +52,7 @@ const MyOrder = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-20">
             {loading ? (
                 <div className="flex justify-center items-center h-screen">
                     <div className="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
@@ -78,8 +78,8 @@ const MyOrder = () => {
                                 <th className="border border-gray-300 px-4 py-2">#</th>
                                 <th className="border border-gray-300 px-4 py-2">Food Info</th>
                                 <th className="border border-gray-300 px-4 py-2">Price</th>
-                                <th className="border border-gray-300 px-4 py-2">Buyer</th>
-                                <th className="border border-gray-300 px-4 py-2">Buying Date</th>
+                                <th className="border border-gray-300 px-4 py-2 hidden sm:table-cell">Buyer</th>
+                                <th className="border border-gray-300 px-4 py-2 hidden sm:table-cell">Buying Date</th>
                                 <th className="border border-gray-300 px-4 py-2">Actions</th>
                             </tr>
                         </thead>
@@ -101,12 +101,12 @@ const MyOrder = () => {
                                         </div>
                                     </td>
                                     <td className="border border-gray-300 px-4 py-2 text-center">${food.price}</td>
-                                    <td className="border border-gray-300 px-4 py-2 text-center">
+                                    <td className="border border-gray-300 px-4 py-2 text-center hidden sm:table-cell">
                                         {food.buyerName}
                                         <br />
                                         <span className="text-sm text-gray-500">{food.buyerEmail}</span>
                                     </td>
-                                    <td className="border border-gray-300 px-4 py-2 text-center">
+                                    <td className="border border-gray-300 px-4 py-2 text-center hidden sm:table-cell">
                                         {moment(food.buyingDate).format("MMMM Do YYYY, h:mm a")}
                                     </td>
                                     <td className="border border-gray-300 px-4 py-2 text-center">

@@ -40,7 +40,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container max-w-4xl mx-auto mb-20 p-4">
             <motion.h2
                 className="text-3xl text-center font-bold mt-8 p-12"
                 initial={{ opacity: 0, y: -50 }}

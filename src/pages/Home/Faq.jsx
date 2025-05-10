@@ -44,7 +44,7 @@ const Faq = () => {
     return (
         <div className="faq-container max-w-6xl mx-auto p-6 mb-10">
             <motion.h2
-                className="text-center my-8 text-3xl font-bold text-gray-500"
+                className="text-center my-8 text-3xl font-bold"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
@@ -56,13 +56,13 @@ const Faq = () => {
                 {faqs.map((faq, index) => (
                     <div key={index} className="faq-item border rounded-lg">
                         <button
-                            className="w-full text-left p-4 font-semibold bg-base-100 hover:bg-gray-200"
+                            className="w-full text-left p-4 font-semibold bg-base-100 hover:bg-base-300"
                             onClick={() => toggleFAQ(index)}
                         >
                             {faq.question}
                         </button>
                         <Collapse isOpened={openIndex === index}>
-                            <div className="p-4 bg-white border-t">{faq.answer}</div>
+                            <div className="p-4 bg-base-200 border-t"> <strong>Answer:</strong> {faq.answer}</div>
                         </Collapse>
                     </div>
                 ))}
