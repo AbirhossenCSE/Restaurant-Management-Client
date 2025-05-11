@@ -16,43 +16,44 @@ const BestFoodCard = ({ food }) => {
     } = food;
 
     return (
-        <div className="card bg-gray-300 shadow-lg rounded-lg overflow-hidden transform transition duration-300">
-            <figure className="relative">
+        <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+            {/* Image with price badge */}
+            <div className="relative">
                 <img
                     src={foodImage}
                     alt={foodName}
-                    className="w-full h-60 object-cover"
+                    className="w-full h-56 object-cover"
                 />
-                <div className="absolute top-2 right-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">
+                <div className="absolute top-3 right-3 bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded shadow">
                     ${parseFloat(price).toFixed(2)}
                 </div>
-            </figure>
+            </div>
 
-            {/* Card Content */}
-            <div className="card-body p-4">
-                <h2 className="card-title text-xl font-bold text-gray-800">{foodName}</h2>
+            {/* Content */}
+            <div className="p-5 space-y-2">
+                <h3 className="text-xl font-bold text-gray-800">{foodName}</h3>
 
-                {/* Category and Origin */}
-                <div className="flex items-center space-x-2 mt-1">
-                    <span className="text-sm text-gray-500">{foodCategory}</span>
+                <div className="flex items-center text-sm text-gray-500 gap-2">
+                    <span>{foodCategory}</span>
                     <span className="text-gray-400">|</span>
-                    <span className="flex items-center text-sm text-gray-500">
-                        <FaMapMarkerAlt className="mr-1 text-gray-400" /> {foodOrigin}
+                    <span className="flex items-center gap-1">
+                        <FaMapMarkerAlt className="text-gray-400" />
+                        {foodOrigin}
                     </span>
                 </div>
 
-                {/* Description */}
-                <p className="mt-2 text-gray-600 text-sm">
+                <p className="text-gray-600 text-sm mt-1">
                     {description.length > 100 ? description.slice(0, 100) + '...' : description}
                 </p>
 
-                {/* Sales and Action */}
-                <div className="mt-4 flex justify-between items-center">
-                    <div className="text-sm text-gray-500">
-                        Total Sales: <span className="font-semibold text-gray-700">{purchaseCount || 0}</span>
-                    </div>
+                <div className="flex justify-between items-center pt-3">
+                    <p className="text-sm text-gray-500">
+                        Sales: <span className="font-medium text-gray-700">{purchaseCount || 0}</span>
+                    </p>
                     <Link to={`/foods/${_id}`}>
-                        <button className="btn btn-neutral text-sm">View Details</button>
+                        <button className="bg-neutral text-white px-4 py-2 text-sm rounded hover:bg-neutral-focus transition">
+                            View Details
+                        </button>
                     </Link>
                 </div>
             </div>
