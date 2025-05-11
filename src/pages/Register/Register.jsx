@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
-import registerLottie from '../../assets/Lottile/register.json'
+import registerLottie from '../../assets/Lottile/register.json';
 import Lottie from 'lottie-react';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const { createUser, setUser } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 
-    // State to manage password visibility
     const [showPassword, setShowPassword] = useState(false);
 
     const handleRegister = e => {
@@ -24,58 +23,28 @@ const Register = () => {
         const photo = form.get('photo');
         const password = form.get('password');
 
-        // Validate password
         const passwordValidation = validatePassword(password);
 
         if (!passwordValidation.isValid) {
-            Swal.fire({
-                title: 'Validation Error',
-                text: passwordValidation.message,
-                icon: 'error',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-            });
+            toast.error(passwordValidation.message);
             return;
         }
 
-        // Create user
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 setUser(user);
-                Swal.fire({
-                    title: 'Registration Successful!',
-                    text: 'You have successfully created an account.',
-                    icon: 'success',
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                });
+                toast.success('Registration Successful!');
                 setTimeout(() => {
                     navigate(location?.state ? location.state : '/');
                 }, 3000);
             })
             .catch(error => {
-                Swal.fire({
-                    title: 'Registration Failed',
-                    text: 'Something went wrong. Please try again.',
-                    icon: 'error',
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                });
+                toast.error('Registration Failed. Please try again.');
                 console.log(error.message);
             });
     };
 
-    // Function to validate password
     const validatePassword = (password) => {
         if (password.length < 6) {
             return { isValid: false, message: "Password must be at least 6 characters long." };
@@ -147,7 +116,7 @@ const Register = () => {
                     <p className='text-center font-semibold'>
                         Already Have An Account? <Link className='text-red-500' to='/signin'>Sign-In</Link>
                     </p>
-                    <SocialLogin></SocialLogin>
+                    <SocialLogin />
                 </div>
             </div>
         </div>

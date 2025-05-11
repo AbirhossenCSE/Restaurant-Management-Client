@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../shared/SocialLogin';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import signinLottie from '../../assets/Lottile/signin.json'
+import signinLottie from '../../assets/Lottile/signin.json';
 import Lottie from 'lottie-react';
+import { toast } from 'react-toastify';
 
 const SignIn = () => {
     const { signInUser, setUser } = useAuth();
@@ -13,37 +13,25 @@ const SignIn = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-
     const handleSignIn = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
-        // signin user
         signInUser(email, password)
             .then(result => {
                 const user = result.user;
                 setUser(user);
 
-                Swal.fire({
-                    title: 'Login Successful!',
-                    text: 'You have successfully logged into your account.',
-                    icon: 'success',
-                    timer: 2000,
-                    showConfirmButton: false,
-                });
-
-                setTimeout(() => {
-                    navigate(location?.state ? location.state : '/'); 
-                }, 2000);
+                toast.success('Login successful!');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                console.log(error);
-            })
-
-    }
+                console.error(error);
+                toast.error('Invalid email or password!');
+            });
+    };
 
     return (
         <div className="hero bg-base-100 min-h-screen">
@@ -94,7 +82,7 @@ const SignIn = () => {
                             Register
                         </Link>
                     </p>
-                    <SocialLogin></SocialLogin>
+                    <SocialLogin />
                 </div>
             </div>
         </div>
