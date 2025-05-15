@@ -21,7 +21,7 @@ const ReviewPage = () => {
       });
   }, []);
 
-  // Slider settings with center mode enabled
+  // Slider settings with center mode
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -36,16 +36,16 @@ const ReviewPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen overflow-x-hidden">
         <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-gray-500"></div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-full bg-base-100 mx-auto py-10">
+    <div className="max-w-7xl bg-base-100 mx-auto py-10 overflow-x-hidden">
       <motion.h2
-        className="text-center text-3xl font-bold m-4"
+        className="text-center text-3xl font-bold mb-8"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: 'easeInOut' }}
@@ -55,7 +55,7 @@ const ReviewPage = () => {
       <Slider {...sliderSettings}>
         {reviews.map(review => (
           <div key={review._id} className="px-4">
-            <div className="shadow-lg rounded-lg p-6 text-center mx-auto">
+            <div className="max-w-md mx-auto bg-base-200 shadow-lg rounded-lg p-6 text-center">
               <h3 className="text-xl font-semibold">{review.name}</h3>
               <p className="text-sm  mb-2">{review.email}</p>
               <p className="">{review.message}</p>

@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer bg-base-300 p-10">
             <aside className='ml-24'>
-                <img className='w-24 h-16 mx-auto' src="https://i.ibb.co/K0n3nVX/Foodlogo.jpg" alt="Food Planet Logo" />
+                <img className='w-24 h-16 md:mx-auto' src="https://i.ibb.co/K0n3nVX/Foodlogo.jpg" alt="Food Planet Logo" />
                 <p className="font-bold text-lg">
                     Food Planet Restaurant
                 </p>
